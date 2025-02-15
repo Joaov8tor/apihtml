@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #response, #response-trigon {
+            margin-top: 20px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>API</h2>
+        <button onclick="showText()">API AddLink e Fluxus</button>
+        <p id="response">http://helya.pylex.xyz:10234/api/addlink?url=</p>
+        
+        <button onclick="showTextTrigon()">API Trigon</button>
+        <p id="response-trigon">https://hahabypasser-secret-or-no.vercel.app/bypass?url=</p>
+    </div>
+
+    <script>
+        function showText() {
+            document.getElementById('response').style.display = 'block';
+        }
+        
+        function showTextTrigon() {
+            document.getElementById('response-trigon').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
