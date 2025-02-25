@@ -6,55 +6,103 @@
     <title>API</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            margin: 0;
+            padding: 0;
+            color: #fff;
         }
         .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            letter-spacing: 2px;
         }
         button {
-            background: #007bff;
-            color: white;
+            background: #00c6ff;
+            color: #fff;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
             cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
+            transition: background 0.3s, transform 0.2s;
+            margin: 20px 0;
         }
         button:hover {
-            background: #0056b3;
+            background: #00aaff;
+            transform: scale(1.1);
+        }
+        button:focus {
+            outline: none;
         }
         #response, #response-trigon {
             margin-top: 20px;
             font-weight: bold;
+            font-size: 1.2rem;
             display: none;
+            color: #00c6ff;
+            word-wrap: break-word;
+        }
+        .copy-button {
+            background: #ff5733;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-top: 10px;
+            display: none;
+        }
+        .copy-button:hover {
+            background: #c73626;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>API</h2>
+        <h2>API - Links de Bypass</h2>
         <button onclick="showText()">API AddLink e Fluxus</button>
         <p id="response">http://helya.pylex.xyz:10234/api/addlink?url=</p>
+        <button class="copy-button" id="copy-addlink" onclick="copyToClipboard('response')">Copiar Link</button>
         
         <button onclick="showTextTrigon()">API Trigon</button>
         <p id="response-trigon">https://hahabypasser-secret-or-no.vercel.app/bypass?url=</p>
+        <button class="copy-button" id="copy-trigon" onclick="copyToClipboard('response-trigon')">Copiar Link</button>
     </div>
 
     <script>
         function showText() {
             document.getElementById('response').style.display = 'block';
+            document.getElementById('copy-addlink').style.display = 'inline-block';
         }
-        
+
         function showTextTrigon() {
             document.getElementById('response-trigon').style.display = 'block';
+            document.getElementById('copy-trigon').style.display = 'inline-block';
+        }
+
+        function copyToClipboard(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Link copiado para a área de transferência!");
+            }).catch(err => {
+                alert("Erro ao copiar o link!");
+            });
         }
     </script>
 </body>
